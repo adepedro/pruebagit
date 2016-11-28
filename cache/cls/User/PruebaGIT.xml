@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Class name="User.PruebaGIT">
+<Super>%Persistent</Super>
+<TimeCreated>64250,63956.469827</TimeCreated>
+
+<Property name="asdf">
+<Type>%String</Type>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^User.PruebaGITD</DataLocation>
+<DefaultData>PruebaGITDefaultData</DefaultData>
+<IdLocation>^User.PruebaGITD</IdLocation>
+<IndexLocation>^User.PruebaGITI</IndexLocation>
+<StreamLocation>^User.PruebaGITS</StreamLocation>
+<Data name="PruebaGITDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>asdf</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>

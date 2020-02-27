@@ -52,6 +52,7 @@
 /// 	<li>1.9   - Removed ITB.HL7.Data.NACK FK to Ens.MessageHeader. Added system task ITB.Task.PurgeNACK to delete async NACK messages that references to non-existing messages.</li>
 /// 	<li>2.0   - Fixed ITB.HL7.Format.HL7XMLv2, fixed stream field writing. ITB.inc enhaced, uses max string values depending on 'Enable Long String' setting.</li>
 /// 	<li>2.1   - Fixed ITB.HL7.Format.HL7XMLv2, support several segments with large stream fields</li>
+///     <li>3.0   - Version for IRIS, Classes added in UDL, ITB.EnsPortal removed (not supported), added Installer manifest</li>
 /// </ul>
 Class ITB.Info Extends %RegisteredObject
 {

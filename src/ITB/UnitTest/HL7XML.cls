@@ -28,7 +28,7 @@ Method OnBeforeAllTests() As %Status
 		set base=##class(%File).NormalizeDirectory("", base)
 		if base="" $$$ThrowStatus($$$ERROR($$$GeneralError,"^UnitTestRoot path incorrect"))
 		
-		set ..HL7Path=##class(%File).SubDirectoryName(base,"backup/hl7",1)
+		set ..HL7Path=##class(%File).SubDirectoryName(base,"tests/hl7",1)
 		if ..HL7Path="" $$$ThrowStatus($$$ERROR($$$GeneralError,"^UnitTestRoot TestPath path incorrect"))
 	} catch ex {
 		set ret = ex.AsStatus()

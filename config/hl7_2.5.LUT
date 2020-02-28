@@ -1,4 +1,6 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26" zv="IRIS for UNIX (Ubuntu Server LTS for x86-64 Containers) 2020.1 (Build 199U)" ts="2020-02-27 13:19:17">
+<Document name="hl7_2.5.LUT">
 <lookupTable>
 <entry table="hl7_2.5" key="ADR_A19.EVNgrp">ADR_A19.QUERY_RESPONSE</entry>
 <entry table="hl7_2.5" key="ADR_A19.EVNgrp.IN1grp">ADR_A19.INSURANCE</entry>
@@ -677,3 +679,4 @@
 <entry table="hl7_2.5" key="VXU_V04.PV1grp">VXU_V04.PATIENT</entry>
 <entry table="hl7_2.5" key="VXX_V02.PIDgrp">VXX_V02.PATIENT</entry>
 </lookupTable>
+</Document></Export>

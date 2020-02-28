@@ -1,13 +1,19 @@
 Class ITB.Installer
 {
 
-Parameter BasePath = "/opt/ITB4IRIS/";
+Parameter BasePath = "/opt/IRIS-HL7-XML/";
 
 XData Install
 {
 <Manifest>
-    <Var Name="SourcePath" Value="${BasePath}/src/"/> 
-    <Var Name="ConfigPath" Value="${BasePath}/config/"/>
+	<If Condition='"${RunDir}"=""'>
+    	<Var Name="BasePath" Value="${#BasePath}"/>
+		<Else>
+			<Var Name="BasePath" Value="${RunDir}"/>
+		</Else>
+	</If>
+    <Var Name="SourcePath" Value="${BasePath}src/"/> 
+    <Var Name="ConfigPath" Value="${BasePath}config/"/>
     <Log Text="Using namespace ${Namespace}" Level="0"/>
     <Namespace Name="${Namespace}" Create="no" Ensemble=""> 
         <Import File="${SourcePath}ITB.inc" Recurse="1" Flags="cuk" />
@@ -25,11 +31,19 @@ ClassMethod RunManifest(ByRef pVars, pLogLevel As %Integer = 3, pInstaller As %I
 }
 
 /// Entry point    
-ClassMethod Run(Namespace As %String) As %Status
+ClassMethod Run(RunDir As %String, Namespace As %String) As %Status
 {
     try { 
         write "START INSTALLER",! 
-        set vars("Namespace") = Namespace 
+		if $Get(Namespace) ="" {
+			set Namespace = $Namespace
+		}
+		if '##class(%EnsembleMgr).IsEnsembleNamespace(Namespace) {
+			set etext = "'"_Namespace_"' Namespace has no Interoperability enabled"
+			Throw ##class(%Exception.General).%New("ERROR","5001",,etext)
+		}
+        set vars("Namespace") = Namespace
+		if ($Get(RunDir) '="") {set vars("RunDir") = ##class(%File).NormalizeDirectory(RunDir)}
         set sc = ..RunManifest(.vars) 
         if sc {
             do ..Log("Install Files ended")

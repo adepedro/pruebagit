@@ -171,7 +171,7 @@ ClassMethod Test(pDir As %String = "C:\ISC\p4\custom_ccrs\_common\tools\Iberia\I
 	try {
 		set ^UnitTestRoot = pDir
 		set userParam = "v="_##class(ITB.Info).#VERSION_" 32K="_$$$ITB32K
-		do ##class(%UnitTest.Manager).RunTest("cls/ITB/UnitTest","/nodelete/debug",userParam)
+		do ##class(%UnitTest.Manager).RunTest("src/ITB/UnitTest","/nodelete/debug",userParam)
 	} catch ex {
 		set ret = ex.AsStatus()
 		do $system.Status.DisplayError(ret)
